@@ -28,6 +28,7 @@ project/plugins/project/
 # Simple Build Tool
 # http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
 
+project/
 target/
 lib_managed/
 src_managed/
@@ -41,6 +42,7 @@ project/boot/
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
+.idea/
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
