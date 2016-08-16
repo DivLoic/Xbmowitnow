@@ -1,15 +1,13 @@
-package org.lmd.storeroom
+package org.ldivad.toolkit
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.Logger
-import org.ldivad.storeroom.{Direction, IncorrectUsageOfTools, SquareMower}
 import org.scalatest.{BeforeAndAfter, FunSuite}
 import org.slf4j.LoggerFactory
 
 /**
   * Created by loicmdivad on 12/08/2016.
   */
-
 class SquareMowerTest extends FunSuite with BeforeAndAfter {
 
   var mower: SquareMower = _
@@ -18,12 +16,13 @@ class SquareMowerTest extends FunSuite with BeforeAndAfter {
   var logger = Logger(LoggerFactory.getLogger(conf.getString("test.logger")))
 
   before {
+    logger info "Initialise a new mower at (0,0,W)."
     mower =  new SquareMower(0, 0, Direction.W, 10, 10)
   }
 
   test("Should keep the mower inside"){
 
-    for( cmd <- "ADAAGAADDAAGGAAA"){
+    for(cmd <- "ADAAGAADDAAGGAAA"){
       mower = mower.run(cmd, logger)
       assert(mower.validate())
     }
@@ -54,10 +53,11 @@ class SquareMowerTest extends FunSuite with BeforeAndAfter {
   }
 
   test("Should fail to bypass the validation tests"){
-    intercept[IncorrectUsageOfTools]{
-      mower.move('A')
+
+    intercept[WrongUsageOfToolException]{
+      val m = new Mower(7, 7, Direction.N)
+      mower = new SquareMower(m, 5, 5)
     }
-    mower.run('A', logger)
   }
 
 }

@@ -1,7 +1,8 @@
-package org.ldivad.storeroom
+package org.ldivad.toolkit
 
 /**
   * Created by loicmdivad on 10/08/2016.
+  * A Simple Enum to avoid manipulate the following Strings: (N,S,E & W)
   */
 object Direction extends Enumeration{
 
@@ -17,4 +18,5 @@ object Direction extends Enumeration{
     case _ => throw new IllegalArgumentException("Bad direction initialisation (N,S,E & W).")
   }
 
+  val sequence = Seq(N, E, S, W)
 }

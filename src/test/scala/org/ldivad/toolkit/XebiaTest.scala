@@ -1,11 +1,11 @@
-package org.lmd.storeroom
+package org.ldivad.toolkit
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.Logger
-import org.ldivad.storeroom.SquareMower
 import org.scalatest.FunSuite
-import org.ldivad.storeroom.Direction._
+import org.ldivad.toolkit.Direction._
 import org.slf4j.LoggerFactory
+
 /**
   * Created by loicmdivad on 15/08/2016.
   */
@@ -14,7 +14,7 @@ class XebiaTest extends FunSuite{
   val conf = ConfigFactory.load("default")
   var logger = Logger(LoggerFactory.getLogger(conf.getString("test.logger")))
 
-  def func(comands: List[Char], m: SquareMower): SquareMower = comands match {
+  def func(order: List[Char], m: SquareMower): SquareMower = order match {
     case Nil => m
     case cmd :: rest => func(rest, m.run(cmd, logger))
   }

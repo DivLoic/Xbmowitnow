@@ -1,4 +1,4 @@
-package org.ldivad.storeroom
+package org.ldivad.toolkit
 
 /**
   * Created by loicmdivad on 10/08/2016.

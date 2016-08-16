@@ -9,9 +9,9 @@ This project is an answer to the technical test MowitNow.
 
 Time line       | Dates          | Remarque
 ----------------|----------------|----------------
-Reception date  | `2016-08-10`   | foo
-Deadline        | `2016-08-20`   | bar
-Last commit     | `...`          | foo bar
+Reception date  | `2016-08-10`   | Mail received on Wednesday 
+Deadline        | `2016-08-20`   | 
+Last commit     | `2016-08-16`   | Mail returned on Tuesday
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ $ sbt "run <your-text-file>"
 By simply hit `sbt run` you will use the default file specified in the configuration file 
 *src/main/resources/default.conf*. 
 
-### logging
+### Logging
 
 After a **sbt run** the program will only out put the result. Hit `cat logs/out.log` to see the every steps.
 You can also change the logger to a console appender with a configuration file as follows:
@@ -58,13 +58,11 @@ dev {
 ```{bash}
 $ sbt test
 ```
-The following console should appear:
-![test stack](https://github.com/DivLoic/Xbmowitnow/raw/master/src/main/resources/img/sbt_test.png)
-Feel free to look at the log file create by the unit tests, hit: `cat logs/test.log`
+The following console should appear:        
+![test stack](https://github.com/DivLoic/Xbmowitnow/raw/master/src/main/resources/img/sbt_test.png)     
+Feel free to look at the log file created by the unit tests, hit: `cat logs/test.log`
 
 
 ### Exception :collision:
-*Note that we introduce a* `WrongToolUsageException` *for the developers that may use
+*Note that we introduce a* `WrongUsageOfToolException` *for the developers that may use
 the Tool interface from MowitNow.*
-
-### See also

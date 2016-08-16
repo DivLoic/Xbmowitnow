@@ -1,15 +1,13 @@
-package org.lmd.storeroom
+package org.ldivad.toolkit
 
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.Logger
-import org.ldivad.storeroom.{Direction, Mower}
-import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSuite}
+import org.scalatest.{BeforeAndAfter, FunSuite}
 import org.slf4j.LoggerFactory
 
 /**
   * Created by loicmdivad on 12/08/2016.
   */
-
 class MowerTest extends FunSuite with BeforeAndAfter {
 
   var mower: Mower = _
@@ -21,6 +19,7 @@ class MowerTest extends FunSuite with BeforeAndAfter {
   before {
     allMowers = List()
     mower = new Mower(0, 0, "N")
+    logger info "Initialise a new mower at (0,0,N)."
   }
 
   test("Should fail on bad command"){
@@ -50,7 +49,6 @@ class MowerTest extends FunSuite with BeforeAndAfter {
       assert(mower.getDir equals state._3)
       assert(mower.getPos equals (state._1, state._2))
     })
-
   }
 
   test("Should move the mower out of the garden"){

@@ -1,12 +1,10 @@
-package org.lmd.storeroom
+package org.ldivad.toolkit
 
-import org.ldivad.storeroom.{Direction, Mower}
 import org.scalatest.FunSuite
 
 /**
   * Created by loicmdivad on 11/08/2016.
   */
-
 class AutomaticTest extends FunSuite {
 
   test("Should pass anyway"){
