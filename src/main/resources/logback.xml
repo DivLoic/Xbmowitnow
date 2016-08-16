@@ -7,7 +7,7 @@
     </appender>
 
     <appender name="TEST" class="ch.qos.logback.core.FileAppender">
-        <file>log/test-mowitnow.log</file>
+        <file>logs/test.log</file>
         <append>false</append>
         <encoder>
             <pattern>%d{yy/MM/dd HH:mm:ss} [%-5level] (%file:%line\) - %msg%n</pattern>
@@ -15,7 +15,7 @@
     </appender>
 
     <appender name="LOG" class="ch.qos.logback.core.FileAppender">
-        <file>log/out-mowitnow.log</file>
+        <file>logs/out.log</file>
         <append>false</append>
         <encoder>
             <pattern>%d{yy/MM/dd HH:mm:ss} [%-5level] (%file:%line\) - %msg%n</pattern>

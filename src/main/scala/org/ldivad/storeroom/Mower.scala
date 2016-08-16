@@ -1,5 +1,8 @@
 package org.ldivad.storeroom
 
+import com.typesafe.scalalogging.Logger
+
+
 /**
   * Created by loicmdivad on 10/08/2016.
   */
@@ -8,11 +11,11 @@ class Mower(x: Int, y: Int, direction: Direction.Value) extends Automatic(x, y, 
 
   def this(x:Int, y:Int, d:String) = this(x, y, Direction.parse(d))
 
-  def mow(): Unit = println("Mowing now")
+  def mow(log: Logger): Unit = log info s"Now mowing the garden at ($x, $y)."
 
-  override def run(argOrder:String) = {
+  override def run(argOrder: Char, log: Logger) = {
 
-    this.mow()
+    this.mow(log)
 
     val (xx, yy, dd) = move(argOrder)
 
@@ -21,5 +24,11 @@ class Mower(x: Int, y: Int, direction: Direction.Value) extends Automatic(x, y, 
   }
 
   override def getActivity = Activity.gardening
+
+  override def toCsv: String = s"$x;$y;$direction"
+
+  override def toTsv: String = s"$x $y $direction"
+
+  override def stop(): Any = s"stopping mower at: $toTsv"
 
 }
